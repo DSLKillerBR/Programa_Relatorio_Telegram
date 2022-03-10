@@ -25,7 +25,7 @@ int main()
     printf("\n \n \n--------------------------------------------------- \n \n\n");
 
     // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
-    double lucro_total = 0, lucro_trade = 0, valor_inicial = 0, valor_final = 0, porcentagem_lucro =0, alavancagem =0, valor_moeda_compra =0, quantidade_negociada = 0, valor_moeda_venda = 0;
+    double dolar = 0, lucro_total_dolar = 0, lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, valor_inicial = 0, valor_final = 0, porcentagem_lucro =0, alavancagem =0, valor_moeda_compra =0, quantidade_negociada = 0, valor_moeda_venda = 0;
 
     FILE *arquivo;
     // criando, caso não exista, o arquivo "mensagem.txt". Se o arquivo existir, ele abrirá e editará o mesmo.
@@ -61,14 +61,22 @@ int main()
 
     valor_final = quantidade_negociada * valor_moeda_venda; // calculando o valor que a conta tinha quando fechou a negociação, ou seja, o valor recebido ao vender as moedas
   
-    lucro_trade = valor_final - valor_inicial; // calculando o lucro da negociação
+    lucro_trade_dolar = valor_final - valor_inicial; // calculando o lucro da negociação
 
     printf("\n Digite o lucro total antes da ultima negociação (em dolar): $ ");
-    scanf("%lf", &lucro_total); // solicitando ao usuário os lucros ganhos antes desta negociação
+    scanf("%lf", &lucro_total_dolar); // solicitando ao usuário os lucros ganhos antes desta negociação
 
-    lucro_total = lucro_total + lucro_trade; // calculando o lucro de todas as negociações
+    lucro_total_dolar = lucro_total_dolar + lucro_trade_dolar; // calculando o lucro de todas as negociações
 
-    porcentagem_lucro = (lucro_trade * 100) / valor_inicial; // calculando a porcentagem de lucro
+    porcentagem_lucro = (lucro_trade_dolar * 100) / valor_inicial; // calculando a porcentagem de lucro
+        
+    printf("\n Digite o valor da cotação do dólar no dia da venda: R$ ");
+    scanf("%lf", &dolar); // solicitando ao usuário o valor que o dólar estava no dia da venda
+        
+    lucro_trade_real = lucro_trade_dolar * dolar;
+        
+    lucro_total_real = lucro_total_dolar * dolar;
+
         
         /*
                         IMPRIMINDO NO ARQUIVO "mensagem.txt"
@@ -84,9 +92,13 @@ int main()
 
     fprintf(arquivo, "\n *Valor Final:* $%.2lf", valor_final); // imprimindo o valor que tinha após o fim da negociação (valor recebido após a venda das moedas)
 
-    fprintf(arquivo, "\n *Lucro Trade:* $%.2lf", lucro_trade); // imprimindo o lucro obtido na negociação (em dólar)
+    fprintf(arquivo, "\n *Lucro negociação em dólar:* $%.2lf", lucro_trade_dolar); // imprimindo o lucro obtido na negociação (em dólar)
+        
+    fprintf(arquivo, "\n *Lucro negociação em real:* R$%.2lf", lucro_trade_real); // imprimindo o lucro obtido na negociação (em real)
 
-    fprintf(arquivo, "\n *Lucro total:* $%.2lf", lucro_total); // imprimindo o lucro obtido em todas negociações do mês (em dólar)
+    fprintf(arquivo, "\n *Lucro total em dólar:* $%.2lf", lucro_total_dolar); // imprimindo o lucro obtido em todas negociações do mês (em dólar)
+       
+    fprintf(arquivo, "\n *Lucro total em real:* R$%.2lf", lucro_total_real); // imprimindo o lucro obtido em todas negociações do mês (em real)
 
     fprintf(arquivo, "\n *Porcentagem Lucro:* %.2lf%%", porcentagem_lucro);  // imprimindo a porcentagem de lucro obtido na negociação
 
