@@ -1,5 +1,5 @@
 /******************************************************************************
-
+        AUTOR: BRENO PINHEIRO DE OLIVEIRA
 
         PROGRAMA PARA GERAÇÃO DE MENSAGENS AUTOMÁTICAS PARA UTILIZAR NO WHATSAPP
 
@@ -7,7 +7,7 @@
                     O programa não possui fim comercial, apenas para
                     uso pessoal. O mesmo gera um arquivo com um padrão
                     de mensagens que usarei para conseguir acompanhar
-                    trades que faço utilizando Criptomoedas.
+                    negociações que faço utilizando Criptomoedas.
 
 
 *******************************************************************************/
@@ -16,6 +16,7 @@
 
 int main()
 {
+    //imprimindo uma mensagem para que o usuário identifique o nome do programa
 
     printf("\n ---------------------------------------------------\n \n \n ");
 
@@ -23,23 +24,23 @@ int main()
 
     printf("\n \n \n--------------------------------------------------- \n \n\n");
 
-  
+    // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
     double lucro_total = 0, lucro_trade = 0, valor_inicial = 0, valor_final = 0, porcentagem_lucro =0, alavancagem =0, valor_moeda_compra =0, quantidade_negociada = 0, valor_moeda_venda = 0;
 
     FILE *arquivo;
-
+    // criando, caso não exista, o arquivo "mensagem.txt". Se o arquivo existir, ele abrirá e editará o mesmo.
     arquivo = fopen("mensagem.txt", "a");
 
-    char data_compra[50];
-    char data_venda[50];
+    char data_compra[50]; // criando o array que receberá a data de compra
+    char data_venda[50];  // criando o array que receberá a data de venda
 
     printf("\n Digite a data da compra:  ");
-    scanf("%s", data_compra);
+    scanf("%s", data_compra); // solicitando ao usuário que ele digite a data que fez a compra
 
     printf("\n Digite a data da venda:  ");
-    scanf("%s", data_venda);
+    scanf("%s", data_venda); // solicitando ao usuário que ele informe a data que fez a venda das moedas
 
-    if(arquivo == NULL)
+    if(arquivo == NULL) // se não for possível abrir o arquivo, ele informa que gouve erro ao tentar abrir o mesmo
     {
         printf("Erro na abertura do arquivo!");
         return 1;
@@ -47,47 +48,51 @@ int main()
 
 
 
-    printf("\n Digite o valor de compra da moeda: ");
-    scanf("%lf", &valor_moeda_compra);
+    printf("\n Digite o valor de compra da moeda (em dolar): $ ");
+    scanf("%lf", &valor_moeda_compra); // solicitando ao usuário o valor gasto por moeda, em dólar
 
-    printf("\n Digite a quantidade de moedas negociadas: ");
-    scanf("%lf", &quantidade_negociada);
+    printf("\n Digite a quantidade de moedas negociadas : ");
+    scanf("%lf", &quantidade_negociada); // solicitando ao usuário a quantidade de moedas negociadas (não é a soma da quantidade vendida + comprada, é apenas uma das duas quantias)
 
-    printf("\n Digite o valor de venda da moeda: ");
-    scanf("%lf", &valor_moeda_venda);
+    printf("\n Digite o valor de venda da moeda (em dolar): $ ");
+    scanf("%lf", &valor_moeda_venda); // solicitando ao usuário o valor recebido por moeda, em dólar
   
-    valor_inicial = quantidade_negociada * valor_moeda_compra;
+    valor_inicial = quantidade_negociada * valor_moeda_compra; // calculando o valor que a conta tinha ao iniciar a negociação, ou seja, o valor gasto para comprar as moedas
 
-    valor_final = quantidade_negociada * valor_moeda_venda;
+    valor_final = quantidade_negociada * valor_moeda_venda; // calculando o valor que a conta tinha quando fechou a negociação, ou seja, o valor recebido ao vender as moedas
   
-    lucro_trade = valor_final - valor_inicial;
+    lucro_trade = valor_final - valor_inicial; // calculando o lucro da negociação
 
-    printf("\n Digite o lucro total antes do ultimo trade: ");
-    scanf("%lf", &lucro_total);
+    printf("\n Digite o lucro total antes da ultima negociação (em dolar): $ ");
+    scanf("%lf", &lucro_total); // solicitando ao usuário os lucros ganhos antes desta negociação
 
-    lucro_total = lucro_total + lucro_trade;
+    lucro_total = lucro_total + lucro_trade; // calculando o lucro de todas as negociações
 
-    porcentagem_lucro = (lucro_trade * 100) / valor_inicial;
+    porcentagem_lucro = (lucro_trade * 100) / valor_inicial; // calculando a porcentagem de lucro
+        
+        /*
+                        IMPRIMINDO NO ARQUIVO "mensagem.txt"
+        */
 
-    fprintf(arquivo, "\n ---------------------------------------------------\n \n \n ");
+    fprintf(arquivo, "\n ---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
-    fprintf(arquivo, "\n *DATA DA COMPRA:* %s", data_compra);
+    fprintf(arquivo, "\n *DATA DA COMPRA:* %s", data_compra); // imprimindo a data inicial (compra) da negociação
 
-    fprintf(arquivo, "\n *DATA DA VENDA:* %s", data_venda);  
+    fprintf(arquivo, "\n *DATA DA VENDA:* %s", data_venda); // imprimindo a data final (venda) da negociação
   
-    fprintf(arquivo, "\n *Valor Inicial:* R$%.2lf", valor_inicial);
+    fprintf(arquivo, "\n *Valor Inicial:* $%.2lf", valor_inicial); // imprimindo o valor que tinha na conta no ínicio da negociação (valor utilizado para comprar as moedas)
 
-    fprintf(arquivo, "\n *Valor Final:* R$%.2lf", valor_final);
+    fprintf(arquivo, "\n *Valor Final:* $%.2lf", valor_final); // imprimindo o valor que tinha após o fim da negociação (valor recebido após a venda das moedas)
 
-    fprintf(arquivo, "\n *Lucro Trade:* R$%.2lf", lucro_trade);
+    fprintf(arquivo, "\n *Lucro Trade:* $%.2lf", lucro_trade); // imprimindo o lucro obtido na negociação (em dólar)
 
-    fprintf(arquivo, "\n *Lucro total:* R$%.2lf", lucro_total);
+    fprintf(arquivo, "\n *Lucro total:* $%.2lf", lucro_total); // imprimindo o lucro obtido em todas negociações do mês (em dólar)
 
-    fprintf(arquivo, "\n *Porcentagem Lucro:* %.2lf%%", porcentagem_lucro);
+    fprintf(arquivo, "\n *Porcentagem Lucro:* %.2lf%%", porcentagem_lucro);  // imprimindo a porcentagem de lucro obtido na negociação
 
-    fprintf(arquivo, "\n \n \n---------------------------------------------------\n ");
+    fprintf(arquivo, "\n \n \n---------------------------------------------------\n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
-    printf("\n Os dados foram gerados no arquivo 'mensagem.txt'!!!\n");
+    printf("\n Os dados foram gravados no arquivo 'mensagem.txt' com sucesso!!!\n"); // informando ao usuário que os dados foram gravados no arquivo "mensagem.txt"
 
     return 0;
 }
