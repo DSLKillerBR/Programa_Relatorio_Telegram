@@ -18,7 +18,7 @@ int main()
 {
     //imprimindo uma mensagem para que o usuário identifique o nome do programa
 
-    printf("\n ---------------------------------------------------\n \n \n ");
+    printf("\n---------------------------------------------------\n \n \n ");
 
     printf("PROGRAMA DE GERADOR DE RELATÓRIOS PARA WHATSAPP");
 
@@ -55,12 +55,14 @@ int main()
 
     printf("\n Digite o valor de compra da moeda (em dolar): $ ");
     scanf("%lf", &valor_moeda_compra); // solicitando ao usuário o valor gasto por moeda, em dólar
+        
+    printf("\n Digite o valor de venda da moeda (em dolar): $ ");
+    scanf("%lf", &valor_moeda_venda); // solicitando ao usuário o valor recebido por moeda, em dólar
 
     printf("\n Digite a quantidade de moedas negociadas : ");
     scanf("%lf", &quantidade_negociada); // solicitando ao usuário a quantidade de moedas negociadas (não é a soma da quantidade vendida + comprada, é apenas uma das duas quantias)
 
-    printf("\n Digite o valor de venda da moeda (em dolar): $ ");
-    scanf("%lf", &valor_moeda_venda); // solicitando ao usuário o valor recebido por moeda, em dólar
+
   
     valor_inicial = quantidade_negociada * valor_moeda_compra; // calculando o valor que a conta tinha ao iniciar a negociação, ou seja, o valor gasto para comprar as moedas
 
@@ -104,7 +106,7 @@ int main()
                         IMPRIMINDO NO ARQUIVO "mensagem.txt"
         */
 
-    fprintf(arquivo, "\n ---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
+    fprintf(arquivo, "\n---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
     fprintf(arquivo, "\n *DATA DA COMPRA:* %s", data_compra); // imprimindo a data inicial (compra) da negociação
 
