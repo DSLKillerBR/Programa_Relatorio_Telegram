@@ -33,6 +33,11 @@ int main()
 
     char data_compra[50]; // criando o array que receberá a data de compra
     char data_venda[50];  // criando o array que receberá a data de venda
+    char tipo; // criando a variável que receberá o tipo da negociação
+        
+    printf("\n Digite o tipo da negociação [ L para LONG e S para SHORT]:  "); // solicitando ao usuário que ele digite o tipo da negociação
+    tipo = getchar(); 
+
 
     printf("\n Digite a data da compra:  ");
     scanf("%s", data_compra); // solicitando ao usuário que ele digite a data que fez a compra
@@ -61,22 +66,39 @@ int main()
 
     valor_final = quantidade_negociada * valor_moeda_venda; // calculando o valor que a conta tinha quando fechou a negociação, ou seja, o valor recebido ao vender as moedas
   
-    lucro_trade_dolar = valor_final - valor_inicial; // calculando o lucro da negociação
+    
 
     printf("\n Digite o lucro total antes da ultima negociação (em dolar): $ ");
     scanf("%lf", &lucro_total_dolar); // solicitando ao usuário os lucros ganhos antes desta negociação
-
-    lucro_total_dolar = lucro_total_dolar + lucro_trade_dolar; // calculando o lucro de todas as negociações
-
-    porcentagem_lucro = (lucro_trade_dolar * 100) / valor_inicial; // calculando a porcentagem de lucro
+    
         
     printf("\n Digite o valor da cotação do dólar no dia da venda: R$ ");
     scanf("%lf", &dolar); // solicitando ao usuário o valor que o dólar estava no dia da venda
         
-    lucro_trade_real = lucro_trade_dolar * dolar;
+   
         
-    lucro_total_real = lucro_total_dolar * dolar;
+     if (tipo == 'S'){ // quando uma negociação é do tipo SHORT, o lucro fica negativo, então criei essa exceção para que os valores negativos sejam transformados em valores positivos
 
+            lucro_trade_dolar = (valor_final - valor_inicial) * -1; // tirando o sinal de negativo do lucro de operações SHORT
+              
+     
+     }
+     else {
+               
+               lucro_trade_dolar = valor_final - valor_inicial; // calculando o lucro da negociação para negociações LONG;     
+               
+            }
+
+    lucro_total_dolar = lucro_total_dolar + lucro_trade_dolar; // calculando o lucro de todas as negociações
+
+    lucro_trade_real = lucro_trade_dolar  * dolar; // calculando o lucro da negociação e convertendo para o real
+
+    lucro_total_real = lucro_total_dolar * dolar; // calculando o lucro de todas as negociações e convertendo para o real
+  
+    porcentagem_lucro = (lucro_trade_dolar * 100) / valor_inicial; // calculando a porcentagem de lucro
+    
+
+  
         
         /*
                         IMPRIMINDO NO ARQUIVO "mensagem.txt"
