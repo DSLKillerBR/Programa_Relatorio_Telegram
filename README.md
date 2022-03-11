@@ -1,18 +1,5 @@
 # Programa_Relatorio_WhatsApp
 
-/******************************************************************************
-
-
-        PROGRAMA PARA GERAÇÃO DE MENSAGENS AUTOMÁTICAS PARA UTILIZAR NO WHATSAPP
-
-
-                    O programa não possui fim comercial, apenas para
-                    uso pessoal. O mesmo gera um arquivo com um padrão
-                    de mensagens que usarei para conseguir acompanhar
-                    trades que faço utilizando Criptomoedas.
-
-
-*******************************************************************************/
 
 O intuito desse programa é eu reunir o útil ao agradável. Eu queria praticar minha programação, mas estava querendo criar um programa próprio. Como eu tinha um certo trabalho para estar colocando todos os trades que eu fazia nas corretoras de Criptomoedas, resolvi criar esse programa que facilitará muito a minha vida. 
 Ele pede alguns dados como a data da negociação, o preço de compra e venda da moeda, a quantidade negociada (minha quantidade vendida é sempre a mesma comprada. Futuramente planejo adicionar uma vertente que muda o programa caso a quantidade vendida e comprada sejam diferentes) e o lucro obtido antes desta negociação que está sendo adicionada ao programa. 
