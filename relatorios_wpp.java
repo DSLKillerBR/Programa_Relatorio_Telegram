@@ -1,7 +1,7 @@
 /******************************************************************************
         AUTOR: BRENO PINHEIRO DE OLIVEIRA
 
-        PROGRAMA PARA GERAÇÃO DE MENSAGENS AUTOMÁTICAS PARA UTILIZAR NO WHATSAPP
+        PROGRAMA PARA GERAÇÃO DE MENSAGENS AUTOMÁTICAS PARA UTILIZAR NO TELEGRAM
 
 
                     O programa não possui fim comercial, apenas para
