@@ -28,15 +28,22 @@ int main()
     printf("\n \n \n--------------------------------------------------- \n \n\n");
         
     char controle; // variável para controlar a repetição do programa
+        
+    FILE *arquivo; // criando, caso não exista, o arquivo "mensagem.txt". Se o arquivo existir, ele abrirá e editará o mesmo.
+    arquivo = fopen("mensagem.txt", "a");
+        
+    if(arquivo == NULL) // se não for possível abrir o arquivo, ele informa que gouve erro ao tentar abrir o mesmo
+    {
+            printf("Erro na abertura do arquivo!");
+            return 1;
+    }
           
     do {
 
         // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
          double dolar = 0, lucro_total_dolar = 0, lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, valor_inicial = 0, valor_final = 0, porcentagem_lucro =0, alavancagem =0, valor_moeda_compra =0, quantidade_negociada = 0, valor_moeda_venda = 0;
 
-         FILE *arquivo;
-         // criando, caso não exista, o arquivo "mensagem.txt". Se o arquivo existir, ele abrirá e editará o mesmo.
-         arquivo = fopen("mensagem.txt", "a");
+         
         
          char data_compra[50]; // criando o array que receberá a data de compra
          char data_venda[50];  // criando o array que receberá a data de venda
@@ -47,27 +54,23 @@ int main()
 
 
          printf("\n Digite a data da compra:  ");
-         scanf("%s", data_compra); // solicitando ao usuário que ele digite a data que fez a compra
+         scanf("%s%*c", data_compra); // solicitando ao usuário que ele digite a data que fez a compra
 
          printf("\n Digite a data da venda:  ");
-         scanf("%s", data_venda); // solicitando ao usuário que ele informe a data que fez a venda das moedas
+         scanf("%s%*c", data_venda); // solicitando ao usuário que ele informe a data que fez a venda das moedas
 
-         if(arquivo == NULL) // se não for possível abrir o arquivo, ele informa que gouve erro ao tentar abrir o mesmo
-         {
-                printf("Erro na abertura do arquivo!");
-                return 1;
-         }
+         
 
 
 
          printf("\n Digite o valor de compra da moeda (em dolar): $ ");
-         scanf("%lf", &valor_moeda_compra); // solicitando ao usuário o valor gasto por moeda, em dólar
+         scanf("%lf%*c", &valor_moeda_compra); // solicitando ao usuário o valor gasto por moeda, em dólar
         
          printf("\n Digite o valor de venda da moeda (em dolar): $ ");
-         scanf("%lf", &valor_moeda_venda); // solicitando ao usuário o valor recebido por moeda, em dólar
+         scanf("%lf%*c", &valor_moeda_venda); // solicitando ao usuário o valor recebido por moeda, em dólar
         
          printf("\n Digite a quantidade de moedas negociadas : ");
-         scanf("%lf", &quantidade_negociada); // solicitando ao usuário a quantidade de moedas negociadas (não é a soma da quantidade vendida + comprada, é apenas uma das duas quantias)
+         scanf("%lf%*c", &quantidade_negociada); // solicitando ao usuário a quantidade de moedas negociadas (não é a soma da quantidade vendida + comprada, é apenas uma das duas quantias)
 
 
   
@@ -78,11 +81,11 @@ int main()
     
 
          printf("\n Digite o lucro total antes da ultima negociação (em dolar): $ ");
-         scanf("%lf", &lucro_total_dolar); // solicitando ao usuário os lucros ganhos antes desta negociação
+         scanf("%lf%*c", &lucro_total_dolar); // solicitando ao usuário os lucros ganhos antes desta negociação
     
         
          printf("\n Digite o valor da cotação do dólar no dia da venda: R$ ");
-         scanf("%lf", &dolar); // solicitando ao usuário o valor que o dólar estava no dia da venda
+         scanf("%lf%*c", &dolar); // solicitando ao usuário o valor que o dólar estava no dia da venda
         
    
         
@@ -138,12 +141,13 @@ int main()
 
         printf("\n Os dados foram gravados no arquivo 'mensagem.txt' com sucesso!!!\n"); // informando ao usuário que os dados foram gravados no arquivo "mensagem.txt"
             
-        printf ("\n Deseja parar? [ D para SIM e N para NÃO]  ");
-        controle = getchar();
+        printf ("\n Deseja parar? [ S para SIM e N para NÃO]: ");
+        scanf("%c%*c",&controle);
             
         } while (controle != 'S');
                 
-                
+    fclose(arquivo); 
+        
     printf(" \n -----------------------------------------------");
     printf(" \n         Fim do programa!\n");
     printf(" \n    Pressione qualquer tecla para sair\n");
