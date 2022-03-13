@@ -139,7 +139,7 @@ int main()
         printf("\n Os dados foram gravados no arquivo 'mensagem.txt' com sucesso!!!\n"); // informando ao usuário que os dados foram gravados no arquivo "mensagem.txt"
             
         printf ("\n Deseja parar? [ D para SIM e N para NÃO]  ");
-        control = getchar();
+        controle = getchar();
             
         } while (controle != 'S');
                 
