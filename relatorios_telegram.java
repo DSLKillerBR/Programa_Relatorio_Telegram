@@ -24,11 +24,11 @@ class Main {
 
           // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
           double lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, porcentagem_lucro =0, alavancagem =0, valor_incial =0, valor_final = 0;
-
           
+          char tipo;
+                    
           Scanner scanner = new Scanner(System.in);
-          
-          
+         
           System.out.print("\n Digite o valor de compra da moeda (em dólar):  $");
           double valor_moeda_compra = scanner.nextDouble();
 
@@ -49,6 +49,18 @@ class Main {
           
           System.out.println("Digite o valor da cotação do dólar no dia da venda: R$");
           double dolar = scanner.nextDouble ();
+          
+          if (tipo == 'S')
+          {
+                  lucro_trade_dolar = (valor_final - valor_incial) * -1;
+                  
+          }
+          else
+          {
+                  lucro_trade_dolar = valor_final - valor_inicial;
+          }
+          
+          lucro_total_dolar = lucro_total_dolar + lucro_trade;
           
     
   }
