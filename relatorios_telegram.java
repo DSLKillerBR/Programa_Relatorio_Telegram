@@ -16,26 +16,40 @@ import java.util.Scanner;
 
 class Main {
   public static void main(String[] args) {
-    System.out.println("\n---------------------------------------------------\n \n \n ");
+          System.out.println("\n---------------------------------------------------\n \n \n ");
 
-    System.out.println("PROGRAMA DE GERADOR DE RELATÓRIOS PARA WHATSAPP");
+          System.out.println("PROGRAMA DE GERADOR DE RELATÓRIOS PARA WHATSAPP");
 
-    System.out.println("\n \n \n--------------------------------------------------- \n \n\n");
+          System.out.println("\n \n \n--------------------------------------------------- \n \n\n");
 
-    // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
-    double dolar = 0, lucro_total_dolar = 0, lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, porcentagem_lucro =0, alavancagem =0, valor_moeda_compra =0, quantidade_negociada = 0, valor_moeda_venda = 0;
+          // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
+          double lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, porcentagem_lucro =0, alavancagem =0, valor_incial =0, valor_final = 0;
+
+          
+          Scanner scanner = new Scanner(System.in);
+          
+          
+          System.out.print("\n Digite o valor de compra da moeda (em dólar):  $");
+          double valor_moeda_compra = scanner.nextDouble();
 
 
-    System.out.println("\n Digite o valor da compra:  ");
-    Scanner scanner = new Scanner(System.in); // solicitando ao usuário que ele digite a data que fez a compra
-    double valor_inicial = scanner.nextDouble();
-
-
-    System.out.println("\n Digite o valor da venda:  ");
-
-    double valor_final = scanner.nextDouble ();// solicitando ao usuário que ele informe a data que fez a venda das moedas
-     System.out.println("\n Valor da compra:  " + valor_inicial) ;
-
-    System.out.println("\n Valor da venda:  " + valor_final);
+          System.out.print("\n Digite o valor de venda da moeda (em dólar):  $");
+          double valor_final = scanner.nextDouble ();// solicitando ao usuário que ele informe a data que fez a venda das moedas
+          
+          
+          System.out.print("\n Digite a quantidade de moedas negociadas:  ");
+          int quantidade_negociada = scanner.nextInt ();
+          
+          valor_incial = quantidade_negociada * valor_moeda_compra; 
+          
+          valor_final = quantidade_negociada * valor_moeda_venda;
+          
+          System.out.print("\n Digite o lucro total antes da última negociação (em dólar): $");
+          double lucro_total_dolar = scanner.nextDouble ();
+          
+          System.out.println("Digite o valor da cotação do dólar no dia da venda: R$");
+          double dolar = scanner.nextDouble ();
+          
+    
   }
 }
