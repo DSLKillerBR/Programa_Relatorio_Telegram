@@ -75,6 +75,10 @@ class Main {
           
           lucro_total_dolar = lucro_total_dolar + lucro_trade_dolar;
           
+          lucro_trade_real = lucro_trade_dolar * dolar;
+          
+          lucro_total_real = lucro_total_dolar * dolar;
+          
           
 
 
