@@ -13,6 +13,9 @@
 *******************************************************************************/
 
 import java.util.Scanner;
+import java.io.File;  
+import java.io.IOException;  
+import java.io.FileWriter; 
 
 class Main {
   public static void main(String[] args) {
@@ -25,6 +28,8 @@ class Main {
           // criando as variáveis que serão utilizadas. Todas estão definidas como double para que possamos utilizar as casas decimais
           double lucro_trade_dolar = 0, lucro_total_real = 0, lucro_trade_real = 0, porcentagem_lucro =0, alavancagem =0, valor_inicial =0, valor_final = 0;
           
+          
+       
           
                     
           Scanner scanner = new Scanner(System.in);
@@ -79,7 +84,26 @@ class Main {
           
           lucro_total_real = lucro_total_dolar * dolar;
           
+          porcentagem_lucro = (lucro_trade_dolar * 100) / quantidade_negociada;
           
+          try {
+                        FileWriter myWriter = new FileWriter("mensagens.txt");
+                        myWriter.write("DATA DA COMPRA: " + data_compra);
+                        myWriter.write("\n DATA DA VENDA: " + data_venda);
+                        myWriter.write("\n VALOR INICIAL: $" + valor_inicial);
+                        myWriter.write("\n VALOR FINAL: $" + valor_final);
+                        myWriter.write("\n LUCRO NEGOCIAÇÃO EM DÓLAR: $" + lucro_trade_dolar);
+                        myWriter.write("\n LUCRO NEGOCIAÇÃO EM REAL: R$" + lucro_trade_real);
+                        myWriter.write("\n LUCRO TOTAL EM DÓLAR: $" + lucro_total_dolar);
+                        myWriter.write("\n LUCRO TOTAL EM REAL: R$" + lucro_total_real);
+                        myWriter.write("\n PROCENTAGEM LUCRO: " + porcentagem_lucro + "%");
+      
+                        myWriter.close();
+                        System.out.println("Os dados foram gravados com  sucesso!");
+               } catch (IOException e) {
+                                                 System.out.println("An error occurred.");
+                                                 e.printStackTrace();
+                                       }
 
 
     
