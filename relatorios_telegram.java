@@ -19,6 +19,7 @@ import java.io.FileWriter;
 
 class Main {
   public static void main(String[] args) {
+          
           System.out.println("\n---------------------------------------------------\n \n \n ");
 
           System.out.println("PROGRAMA DE GERADOR DE RELATÓRIOS PARA WHATSAPP");
@@ -39,7 +40,7 @@ class Main {
           
           scanner.nextLine();
           
-          System.out.println("\nDigite a data da compra: ");
+          System.out.print("\nDigite a data da compra: ");
           String data_compra = scanner.nextLine();
           
           
