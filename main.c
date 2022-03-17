@@ -117,7 +117,7 @@ int main()
                         IMPRIMINDO NO ARQUIVO "mensagem.txt"
         */
 
-        fprintf(arquivo, "\n---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
+        fprintf(arquivo, "\n \n---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
         fprintf(arquivo, "\n **DATA DA COMPRA:** %s", data_compra); // imprimindo a data inicial (compra) da negociação
 
@@ -137,16 +137,17 @@ int main()
 
         fprintf(arquivo, "\n **Porcentagem Lucro:** %.2lf%%", porcentagem_lucro);  // imprimindo a porcentagem de lucro obtido na negociação
 
-        fprintf(arquivo, "\n \n \n---------------------------------------------------\n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
+        fprintf(arquivo, "\n \n \n---------------------------------------------------\n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
         printf("\n Os dados foram gravados no arquivo 'mensagem.txt' com sucesso!!!\n"); // informando ao usuário que os dados foram gravados no arquivo "mensagem.txt"
             
         printf ("\n Deseja parar? [ S para SIM e N para NÃO]: ");
         scanf("%c%*c",&controle);
+        fclose(arquivo); 
             
         } while (controle != 'S');
                 
-    fclose(arquivo); 
+    
         
     printf(" \n -----------------------------------------------");
     printf(" \n         Fim do programa!\n");
