@@ -23,7 +23,7 @@ int main()
 
     printf("\n---------------------------------------------------\n \n \n ");
 
-    printf("PROGRAMA DE GERADOR DE RELATÓRIOS PARA WHATSAPP"); //imprimindo uma mensagem para que o usuário identifique o nome do programa
+    printf("PROGRAMA DE GERADOR DE RELATÓRIOS PARA TELEGRAM"); //imprimindo uma mensagem para que o usuário identifique o nome do programa
 
     printf("\n \n \n--------------------------------------------------- \n \n\n");
         
@@ -119,23 +119,23 @@ int main()
 
         fprintf(arquivo, "\n---------------------------------------------------\n \n \n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
-        fprintf(arquivo, "\n *DATA DA COMPRA:* %s", data_compra); // imprimindo a data inicial (compra) da negociação
+        fprintf(arquivo, "\n **DATA DA COMPRA:** %s", data_compra); // imprimindo a data inicial (compra) da negociação
 
-        fprintf(arquivo, "\n *DATA DA VENDA:* %s", data_venda); // imprimindo a data final (venda) da negociação
+        fprintf(arquivo, "\n **DATA DA VENDA:** %s", data_venda); // imprimindo a data final (venda) da negociação
   
-        fprintf(arquivo, "\n *Valor Inicial:* $%.2lf", valor_inicial); // imprimindo o valor que tinha na conta no ínicio da negociação (valor utilizado para comprar as moedas)
+        fprintf(arquivo, "\n **Valor Inicial:** $%.2lf", valor_inicial); // imprimindo o valor que tinha na conta no ínicio da negociação (valor utilizado para comprar as moedas)
 
-        fprintf(arquivo, "\n *Valor Final:* $%.2lf", valor_final); // imprimindo o valor que tinha após o fim da negociação (valor recebido após a venda das moedas)
+        fprintf(arquivo, "\n **Valor Final:** $%.2lf", valor_final); // imprimindo o valor que tinha após o fim da negociação (valor recebido após a venda das moedas)
 
-        fprintf(arquivo, "\n *Lucro negociação em dólar:* $%.2lf", lucro_trade_dolar); // imprimindo o lucro obtido na negociação (em dólar)
+        fprintf(arquivo, "\n **Lucro negociação em dólar:** $%.2lf", lucro_trade_dolar); // imprimindo o lucro obtido na negociação (em dólar)
         
-        fprintf(arquivo, "\n *Lucro negociação em real:* R$%.2lf", lucro_trade_real); // imprimindo o lucro obtido na negociação (em real)
+        fprintf(arquivo, "\n **Lucro negociação em real:** R$%.2lf", lucro_trade_real); // imprimindo o lucro obtido na negociação (em real)
 
-        fprintf(arquivo, "\n *Lucro total em dólar:* $%.2lf", lucro_total_dolar); // imprimindo o lucro obtido em todas negociações do mês (em dólar)
+        fprintf(arquivo, "\n **Lucro total em dólar:** $%.2lf", lucro_total_dolar); // imprimindo o lucro obtido em todas negociações do mês (em dólar)
        
-        fprintf(arquivo, "\n *Lucro total em real:* R$%.2lf", lucro_total_real); // imprimindo o lucro obtido em todas negociações do mês (em real)
+        fprintf(arquivo, "\n **Lucro total em real:** R$%.2lf", lucro_total_real); // imprimindo o lucro obtido em todas negociações do mês (em real)
 
-        fprintf(arquivo, "\n *Porcentagem Lucro:* %.2lf%%", porcentagem_lucro);  // imprimindo a porcentagem de lucro obtido na negociação
+        fprintf(arquivo, "\n **Porcentagem Lucro:** %.2lf%%", porcentagem_lucro);  // imprimindo a porcentagem de lucro obtido na negociação
 
         fprintf(arquivo, "\n \n \n---------------------------------------------------\n "); // imprimindo uma linha divisória entre as negociações, para que haja organização caso tenha mais de um trade no mês
 
