@@ -8,3 +8,5 @@ Ele gera para o usuário, um arquivo contendo as informações adicionadas no pr
 Neste arquivo, denominado "mensagem.txt", os dados são impressos de uma forma que, ao copiar o texto presente no arquivo e colar no Telegram, ficará em negrito as idicações dos dados. Ex.: "**Data da negociação:**" (o Telegram irá ler "Data da negociação" porém em negrito). 
 Ainda possuo alguns planos ambiciosos para esse programa, como adicionar um banco de dados para não ficar dependente do arquivo para salvar os dados dos trades, criar uma interface bacana para o usuário e tentar criar esse programa em outras linguagens de programação, para treinar e aprofundar meus conhecimentos.
 O programa seria usado para colocar os relatórios no WhatsApp porém, por limitação do mesmo, irei utilizar o Telegram.
+O programa também pode ser utilizado para gerar relatórios de negociações de ações, pois o processo seria muito semenlhante.
+Planejo, futuramente, criar uma variação para as negociações de ações também. Acho que vou criar a variação dentro do arquivo main.c ao invés de criar um outro arquivo separado para as negociações de ações.
