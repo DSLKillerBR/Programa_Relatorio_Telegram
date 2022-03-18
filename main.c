@@ -53,10 +53,10 @@ int main()
          tipo = getchar(); 
 
 
-         printf("\n Digite a data da compra:  ");
+         printf("\n Digite a data da compra [Dia/Mês/Ano]:  ");
          scanf("%s%*c", data_compra); // solicitando ao usuário que ele digite a data que fez a compra
 
-         printf("\n Digite a data da venda:  ");
+         printf("\n Digite a data da venda [Dia/Mês/Ano]:  ");
          scanf("%s%*c", data_venda); // solicitando ao usuário que ele informe a data que fez a venda das moedas
 
          
